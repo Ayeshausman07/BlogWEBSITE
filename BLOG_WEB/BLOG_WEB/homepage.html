@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Thought Journal 💌</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Lora:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+       <script type="module" src="homepage.js"></script>
+       
+</head>
+<body>
+    <!-- Navbar -->
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+    <div class="container d-flex justify-content-between align-items-center">
+        <!-- Logo & Title -->
+        <a class="navbar-brand d-flex align-items-center" href="#">
+            <img src="assets/logoo.png" width="120" alt="Logo" class="me-2 img-fluid">
+            <h1 class="blog-titlee m-0 fs-4 d-none d-md-block">The Thought Journal 💌</h1>
+            <h1 class="blog-titlee m-0 fs-6 d-block d-md-none">The Thought Journal 💌</h1>
+        </a>
+
+        <!-- Navbar Toggler for Mobile -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Navbar Items -->
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="navbar-nav align-items-center">
+                <li class="nav-item"><a href="homepage.html" class="nav-link me-3">Home</a></li>
+                <li class="nav-item"><a href="explore.html" class="nav-link me-3">Explore</a></li>
+                <li class="nav-item"><a href="addblog.html" class="nav-link me-3">Add Blog</a></li>
+                <li class="nav-item"><a href="#" id="logout" class="nav-link me-3">Logout</a></li>
+
+                <!-- Bookmark Button (with Count) -->
+                <li class="nav-item d-flex align-items-center">
+                    <button id="savedBlogsBtn" class="nav-link d-flex align-items-center">
+                        <i class="fas fa-bookmark"></i>
+                        <span id="savedCount" class="ms-2"></span> 
+                    </button>
+                </li>
+
+                <!-- Theme Toggle Button -->
+                <li class="nav-item">
+                    <button id="theme-toggle" class="btn btn-light d-flex align-items-center p-2">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+
+    <!-- Hero Section -->
+ <!-- Hero Section -->
+<div class="container hero-section text-center py-4 mt-4">
+    <h1 class="hero-text fw-bold">Welcome to Aisha's Blogs! <br>Discover stories, ideas, and creativity.</h1>
+    <input type="text" id="searchBar" class="form-control mt-3 shadow-sm border-0 rounded-pill" placeholder="Search blogs...">
+    <button class="btn btn-explore mt-3 px-4 py-2 fw-bold shadow-sm rounded-pill">Explore Blogs</button>
+</div>
+
+<div class="container mt-5">
+    <h2 class="text-center mb-4 text-danger fw-bold">✨ Featured Blogs ✨</h2>
+    <div class="row" id="blogContainer">
+
+        <!-- Creative Writing Tips -->
+        <div class="col-md-3">
+            <div class="blog-card p-4 rounded shadow-lg text-center animate-card">
+                <img src="https://theconceptwriters.com.pk/wp-content/uploads/2023/07/Creative-Writing-Tips-to-Help-You-Write-Better-Stories.webp" class="img-fluid rounded mb-3" alt="Creative Writing">
+                <h5 class="fw-bold">Creative Writing Tips</h5>
+                <p class="text-muted">Learn how to write engaging stories and blogs.</p>
+                <button class="btn btn-sm btn-explore px-4 py-2 rounded-pill fw-bold" 
+                        data-bs-toggle="modal" 
+                        data-bs-target="#blogModal" 
+                        data-title="Creative Writing Tips" 
+                        data-img="https://theconceptwriters.com.pk/wp-content/uploads/2023/07/Creative-Writing-Tips-to-Help-You-Write-Better-Stories.webp" 
+                        data-content="Learn how to write engaging and compelling stories. Master storytelling techniques, improve character development, and explore new writing styles. Whether you're a beginner or an expert, these tips will enhance your creativity and take your writing to the next level.">
+                    Read More
+                </button>
+            </div>
+        </div>
+
+        <!-- Tech Trends 2025 -->
+        <div class="col-md-3">
+            <div class="blog-card p-4 rounded shadow-lg text-center animate-card">
+                <img src="https://media.licdn.com/dms/image/v2/D5612AQGbxWLdoI0UaA/article-cover_image-shrink_720_1280/article-cover_image-shrink_720_1280/0/1709172426338?e=2147483647&v=beta&t=lZFizLgd6p0M0_utWIcIBpFYd0-mfOkzaaBdyUeSFO4" class="img-fluid rounded mb-3" alt="Tech Trends">
+                <h5 class="fw-bold">Tech Trends 2025</h5>
+                <p class="text-muted">Stay updated with the latest technology trends.</p>
+                <button class="btn btn-sm btn-explore px-4 py-2 rounded-pill fw-bold" 
+                        data-bs-toggle="modal" 
+                        data-bs-target="#blogModal" 
+                        data-title="Tech Trends 2025" 
+                        data-img="https://media.licdn.com/dms/image/v2/D5612AQGbxWLdoI0UaA/article-cover_image-shrink_720_1280/article-cover_image-shrink_720_1280/0/1709172426338?e=2147483647&v=beta&t=lZFizLgd6p0M0_utWIcIBpFYd0-mfOkzaaBdyUeSFO4" 
+                        data-content="Stay ahead with the latest technology advancements. Learn about AI-powered solutions, blockchain innovations, cybersecurity trends, and the future of smart devices. Discover how technology is shaping industries, improving automation, and transforming everyday life.">
+                    Read More
+                </button>
+            </div>
+        </div>
+
+        <!-- Ultimate Travel Guide -->
+        <div class="col-md-3">
+            <div class="blog-card p-4 rounded shadow-lg text-center animate-card">
+                <img src="https://i.ytimg.com/vi/xm_bCx7NycQ/maxresdefault.jpg" class="img-fluid rounded mb-3" alt="Travel Guide">
+                <h5 class="fw-bold">Ultimate Travel Guide</h5>
+                <p class="text-muted">Explore the best destinations for 2025.</p>
+                <button class="btn btn-sm btn-explore px-4 py-2 rounded-pill fw-bold" 
+                        data-bs-toggle="modal" 
+                        data-bs-target="#blogModal" 
+                        data-title="Ultimate Travel Guide" 
+                        data-img="https://i.ytimg.com/vi/xm_bCx7NycQ/maxresdefault.jpg" 
+                        data-content="Discover the best travel destinations for 2025. Get insights on budget-friendly adventures, top-rated hotels, must-visit landmarks, and hidden gems. Learn about visa tips, cultural etiquette, and travel safety to plan your dream vacation seamlessly.">
+                    Read More
+                </button>
+            </div>
+        </div>
+
+        <!-- Healthy Recipes -->
+        <div class="col-md-3">
+            <div class="blog-card p-4 rounded shadow-lg text-center animate-card">
+                <img src="https://plus.unsplash.com/premium_photo-1681826395340-d34408303d6d?q=80&w=2072&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="img-fluid rounded mb-3" alt="Healthy Recipes">
+                <h5 class="fw-bold">Healthy Recipes</h5>
+                <p class="text-muted">Try these delicious and nutritious meals.</p>
+                <button class="btn btn-sm btn-explore px-4 py-2 rounded-pill fw-bold" 
+                        data-bs-toggle="modal" 
+                        data-bs-target="#blogModal" 
+                        data-title="Healthy Recipes" 
+                        data-img="https://www.mobiles.co.uk/blog/content/images/2021/02/banner-1.jpg" 
+                        data-content="Explore tasty and healthy meal options. Learn how to prepare quick and nutritious meals, from high-protein breakfasts to low-carb dinners. Discover diet-friendly alternatives, superfoods, and tips for maintaining a balanced lifestyle.">
+                    Read More
+                </button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<!-- Trending Blogs Slider -->
+<div class="container mt-5">
+    <h2 class="text-center mb-4 text-danger fw-bold">🔥 Trending Blogs 🔥</h2>
+    <div id="trendingBlogsCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="https://images.yourstory.com/cs/4/7951d870deb311e98c337d64c472c4c1/1-1595059104679.png?mode=crop&crop=faces&ar=2%3A1&format=auto&w=1920&q=75" class="d-block w-100 rounded" alt="Trending Blog 1">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Exploring Nature's Beauty</h5>
+                    <p>Discover the best nature spots to visit this year.</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="https://datasemantics.co/wp-content/uploads/2019/06/Quote-2.jpg" class="d-block w-100 rounded" alt="Trending Blog 2">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>The Future of AI</h5>
+                    <p>How artificial intelligence is shaping our world.</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="https://d25yuvogekh0nj.cloudfront.net/2021/01/mw1920_Best-Health-Blogs-To-Keep-You-Happy-_-Healthy-facebook.png" class="d-block w-100 rounded" alt="Trending Blog 3">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Delicious Healthy Recipes</h5>
+                    <p>Try out these easy and healthy meal ideas.</p>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#trendingBlogsCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#trendingBlogsCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+</div>
+
+<div class="container mt-5">
+    <h2 class="text-center mb-4 text-danger fw-bold">🔥 Trending & Latest Blogs 🔥</h2>
+    <div class="row" id="trendingBlogs">
+        <!-- Tech Innovations -->
+        <div class="col-md-4">
+            <div class="blog-card p-4 rounded shadow-lg text-center animate-card">
+                <img src="https://ideascale.com/wp-content/uploads/2023/07/technology-innovation-cover.jpg" class="img-fluid rounded mb-3" alt="Tech Innovations">
+                <h5 class="fw-bold">Tech Innovations</h5>
+                <p class="text-muted">Stay updated with the latest tech trends.</p>
+                <button class="btn btn-sm btn-explore px-4 py-2 rounded-pill fw-bold" 
+                        data-bs-toggle="modal" 
+                        data-bs-target="#blogModal" 
+                        data-title="Tech Innovations" 
+                        data-img="https://ideascale.com/wp-content/uploads/2023/07/technology-innovation-cover.jpg" 
+                        data-content="Stay updated with the latest tech trends and advancements in AI, blockchain, and smart technology. Discover how innovations are shaping industries, from self-driving cars to AI-powered assistants. Learn about cutting-edge gadgets, future predictions, and breakthroughs in modern science.">
+                    Read More
+                </button>
+            </div>
+        </div>
+
+        <!-- Travel Adventures -->
+        <div class="col-md-4">
+            <div class="blog-card p-4 rounded shadow-lg text-center animate-card">
+                <img src="https://lessworkmoreadventure.com/wp-content/uploads/2022/08/best-adventure-travel-destinations-1024x683.jpg" class="img-fluid rounded mb-3" alt="Travel Adventures">
+                <h5 class="fw-bold">Travel Adventures</h5>
+                <p class="text-muted">Explore the world with these travel guides.</p>
+                <button class="btn btn-sm btn-explore px-4 py-2 rounded-pill fw-bold" 
+                        data-bs-toggle="modal" 
+                        data-bs-target="#blogModal" 
+                        data-title="Travel Adventures" 
+                        data-img="https://lessworkmoreadventure.com/wp-content/uploads/2022/08/best-adventure-travel-destinations-1024x683.jpg" 
+                        data-content="Discover breathtaking travel destinations and essential travel tips. From hidden gems to popular tourist attractions, learn how to plan your next adventure like a pro. Get insights on budget travel, solo trips, must-visit spots, and cultural experiences from around the world.">
+                    Read More
+                </button>
+            </div>
+        </div>
+
+        <!-- Food & Recipes -->
+        <div class="col-md-4">
+            <div class="blog-card p-4 rounded shadow-lg text-center animate-card">
+                <img src="https://img.freepik.com/premium-photo/earth-surrounded-by-food-waste-ingredients_285145-10189.jpg" class="img-fluid rounded mb-3" alt="Food & Recipes">
+                <h5 class="fw-bold">Food & Recipes</h5>
+                <p class="text-muted">Try out delicious and easy-to-make recipes.</p>
+                <button class="btn btn-sm btn-explore px-4 py-2 rounded-pill fw-bold" 
+                        data-bs-toggle="modal" 
+                        data-bs-target="#blogModal" 
+                        data-title="Food & Recipes" 
+                        data-img="https://img.freepik.com/premium-photo/earth-surrounded-by-food-waste-ingredients_285145-10189.jpg" 
+                        data-content="Explore delicious and easy-to-make recipes for every occasion. Whether you love quick 10-minute meals, gourmet dishes, or healthy vegan options, find inspiration to cook like a pro. Learn cooking hacks, ingredient substitutions, and trending food ideas from top chefs.">
+                    Read More
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+    <!-- Modal -->
+<div class="modal fade" id="blogModal" tabindex="-1" aria-labelledby="blogModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="blogModalLabel"></h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <img id="blogModalImage" src="" class="img-fluid rounded mb-3" alt="Blog Image">
+                <p id="blogModalContent"></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <!-- Saved Blogs Modal -->
+    <div class="modal fade" id="savedBlogsModal" tabindex="-1" aria-labelledby="savedBlogsModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="savedBlogsModalLabel">Saved Blogs</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <ul id="savedBlogsList" class="list-group"></ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container mt-5">
+        <h2 class="text-center mb-4 text-danger fw-bold">✨ Featured Blogs ✨</h2>
+        
+        
+        <div class="row" id="blogContainer">
+            <!-- Blog Posts -->
+            <div class="col-md-3">
+                <div class="blog-card p-4 rounded shadow-lg text-center animate-card">
+                    <img src="https://assets.prowritingaid.com/f/145420/750x469/2d1f6510ff/blog-title-creative-writing-tips.png/m/" class="img-fluid rounded mb-3" alt="Creative Writing">
+                    <h5 class="fw-bold">Creative Writing Tips</h5>
+                    <p class="text-muted">Learn how to write engaging stories and blogs. Discover techniques to develop compelling characters, craft unique plots, and refine your writing style to keep readers hooked.</p>
+                    <button class="btn btn-sm btn-explore px-4 py-2 rounded-pill fw-bold" data-bs-toggle="modal" data-bs-target="#blogModal">Read More</button>
+                    <div class="mt-2">
+                        <button class="btn btn-outline-danger like-btn" data-id="1">❤️ Like <span class="like-count">0</span></button>
+                        <button class="btn btn-outline-warning bookmark-btn" data-id="1">🔖 Bookmark</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Additional Blogs -->
+            <div class="col-md-3">
+                <div class="blog-card p-4 rounded shadow-lg text-center animate-card">
+                    <img src="https://img.taste.com.au/gDGu4a6m/taste/2020/06/healthy-apricot-chicken-recipe-for-two-162648-1.jpg" class="img-fluid rounded mb-3" alt="Healthy Recipes">
+                    <h5 class="fw-bold">Healthy Recipes</h5>
+                    <p class="text-muted">Try these delicious and nutritious meals that are easy to prepare. From high-protein breakfasts to light dinners, explore recipes that balance taste and wellness.</p>
+                    <button class="btn btn-sm btn-explore px-4 py-2 rounded-pill fw-bold" data-bs-toggle="modal" data-bs-target="#blogModal">Read More</button>
+                    <div class="mt-2">
+                        <button class="btn btn-outline-danger like-btn" data-id="2">❤️ Like <span class="like-count">0</span></button>
+                        <button class="btn btn-outline-warning bookmark-btn" data-id="2">🔖 Bookmark</button>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="col-md-3">
+                <div class="blog-card p-4 rounded shadow-lg text-center animate-card">
+                    <img src="https://www.clematistech.com/wp-content/uploads/2021/07/Beginners-Guide-to-Digital-Marketing-101.png" class="img-fluid rounded mb-3" alt="Digital Marketing">
+                    <h5 class="fw-bold">Digital Marketing 101</h5>
+                    <p class="text-muted">Learn the best strategies to grow online and increase engagement. Master SEO, social media tactics, and content marketing to build a successful digital presence.</p>
+                    <button class="btn btn-sm btn-explore px-4 py-2 rounded-pill fw-bold" data-bs-toggle="modal" data-bs-target="#blogModal">Read More</button>
+                    <div class="mt-2">
+                        <button class="btn btn-outline-danger like-btn" data-id="4">❤️ Like <span class="like-count">0</span></button>
+                        <button class="btn btn-outline-warning bookmark-btn" data-id="4">🔖 Bookmark</button>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="col-md-3">
+                <div class="blog-card p-4 rounded shadow-lg text-center animate-card">
+                    <img src="https://cdn.pixabay.com/photo/2015/06/24/15/45/code-820275_1280.jpg" class="img-fluid rounded mb-3" alt="Coding Tips">
+                    <h5 class="fw-bold">Essential Coding Tips</h5>
+                    <p class="text-muted">Improve your coding skills with expert advice. Learn how to write clean, efficient code, debug common issues, and understand best practices in programming languages like Python, JavaScript, and more.</p>
+                    <button class="btn btn-sm btn-explore px-4 py-2 rounded-pill fw-bold" data-bs-toggle="modal" data-bs-target="#blogModal">Read More</button>
+                    <div class="mt-2">
+                        <button class="btn btn-outline-danger like-btn" data-id="5">❤️ Like <span class="like-count">0</span></button>
+                        <button class="btn btn-outline-warning bookmark-btn" data-id="5">🔖 Bookmark</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Blog Modal -->
+<div class="modal fade" id="blogModal" tabindex="-1" aria-labelledby="blogModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title fw-bold" id="blogModalTitle"></h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body text-center">
+                <img id="blogModalImage" src="" class="img-fluid rounded mb-3" alt="Blog Image">
+                <p id="blogModalContent" class="text-muted"></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+        <!-- Comment Section -->
+        <div class="mt-5 p-4 rounded shadow-lg ">
+            <h4 class="text-center text-secondary fw-bold">💬 Leave a Comment</h4>
+        
+            <textarea id="commentBox" class="form-control border-2 border-primary mt-2" rows="3" placeholder="Type your comment..."></textarea>
+        
+            <p class="text-end text-muted mt-1">
+                <small class="smol">Characters left: <span id="charCount" class="fw-bold text-danger">200</span></small>
+            </p>
+        
+            <button class="bot btn w-100 fw-bold" id="submitComment">Submit Comment</button>
+        
+            <div class="mt-4">
+                <h5 class="text-primary fw-bold">📜 Comments</h5>
+                <ul class="list-group mt-2" id="commentList">
+                    <li class="list-group-item border-left border-3 border-primary">
+                        <strong class="text-danger">John Doe:</strong> Great blog! Learned a lot. 👍
+                    </li>
+                    <li class="list-group-item border-left border-3 border-warning">
+                        <strong class="text-danger">Jane Smith:</strong> The recipes section is amazing! 😍
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+    
+    <script>
+
+document.addEventListener("DOMContentLoaded", function() {
+    document.querySelectorAll(".btn-explore").forEach(button => {
+        button.addEventListener("click", function() {
+            let blogCard = this.closest(".blog-card");
+            let title = blogCard.querySelector("h5").textContent;
+            let imageSrc = blogCard.querySelector("img").src;
+            let content = blogCard.querySelector("p").textContent;
+
+            document.getElementById("blogModalTitle").textContent = title;
+            document.getElementById("blogModalImage").src = imageSrc;
+            document.getElementById("blogModalContent").textContent = content;
+        });
+    });
+});
+
+        
+        
+    document.addEventListener("DOMContentLoaded", function() {
+        // Like Button Feature
+        document.querySelectorAll(".like-btn").forEach(button => {
+            const id = button.getAttribute("data-id");
+            let count = localStorage.getItem(`like-${id}`) || 0;
+            button.querySelector(".like-count").textContent = count;
+            
+            button.addEventListener("click", function() {
+                count++;
+                localStorage.setItem(`like-${id}`, count);
+                button.querySelector(".like-count").textContent = count;
+            });
+        });
+    
+        // Bookmark Button Feature
+        document.querySelectorAll(".bookmark-btn").forEach(button => {
+            const id = button.getAttribute("data-id");
+            button.addEventListener("click", function() {
+                let isBookmarked = localStorage.getItem(`bookmark-${id}`);
+                if (isBookmarked) {
+                    localStorage.removeItem(`bookmark-${id}`);
+                    button.classList.remove("btn-success");
+                    button.textContent = "🔖 Bookmark";
+                } else {
+                    localStorage.setItem(`bookmark-${id}`, "true");
+                    button.classList.add("btn-success");
+                    button.textContent = "✅ Bookmarked";
+                }
+            });
+        });
+    
+      
+    
+        // Comment Section Feature
+        let commentBox = document.getElementById("commentBox");
+        let charCount = document.getElementById("charCount");
+        let commentList = document.getElementById("commentList");
+        let currentUser = "Guest";
+        
+        commentBox.addEventListener("input", function() {
+            let remaining = 200 - commentBox.value.length;
+            charCount.textContent = remaining;
+            charCount.classList.toggle("text-danger", remaining < 0);
+        });
+    
+        document.getElementById("submitComment").addEventListener("click", function() {
+            if (commentBox.value.trim() !== "" && commentBox.value.length <= 200) {
+                let newComment = document.createElement("li");
+                newComment.classList.add("list-group-item");
+                newComment.innerHTML = `<strong>${currentUser}:</strong> ${commentBox.value}`;
+                commentList.appendChild(newComment);
+                commentBox.value = "";
+                charCount.textContent = "200";
+            }
+        });
+    });
+    </script>
+    
+
+<!-- Footer -->
+<footer class="bg-light py-4 mt-5">
+    <div class="container d-flex flex-wrap justify-content-between">
+        <div class="footer-about">
+            <h4 class="fw-bold"><img src="assets/logoo.png" width="150" alt="Logo"><span class="blog-titlee"> The Thought Journal 💌</span></h4>
+            <p>
+                I'm Aisha Usman, a CS student and a foodie. I love sharing my passion for recipes, technology, and creativity. 
+                Through this blog, I explore and share my experiences in food, coding, and lifestyle.
+            </p>
+            <div class="social-icons mt-2">
+                <a href="https://www.linkedin.com/in/ayesha-usman-413879302/" class="me-2"><i class="fab fa-linkedin"></i></a>
+                <a href="#" class="me-2"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="me-2"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+        <div class="footer-links">
+            <h5 class="fw-bold">Links</h5>
+            <ul class="list-unstyled">
+                <li><a href="homepage.html">Homepage</a></li>
+                <li><a href="explore.html">Blog</a></li>
+                <li><a href="addblog.html">Add Blog</a></li>
+                <li><a href="homepage.html">Search Blogs</a></li>
+            </ul>
+        </div>
+        <div class="footer-tags">
+            <h5 class="fw-bold">Tags</h5>
+            <ul class="list-unstyled">
+                <li><a href="homepage.html">Food</a></li>
+                <li><a href="homepage.html">Recipes</a></li>
+                <li><a href="homepage.html">Coding</a></li>
+                <li><a href="homepage.html">Technology</a></li>
+            </ul>
+        </div>
+        <div class="footer-social">
+            <h5 class="fw-bold">Social</h5>
+            <ul class="list-unstyled">
+                <li><a href="https://www.linkedin.com/in/ayesha-usman-413879302/">LinkedIn</a></li>
+                <li><a href="#">Instagram</a></li>
+                <li><a href="#">Facebook</a></li>
+                <li><a href="#">YouTube</a></li>
+            </ul>
+        </div>
+    </div>
+</footer>
+
+
+
+<script>
+    var blogModal = document.getElementById('blogModal');
+    blogModal.addEventListener('show.bs.modal', function (event) {
+        var button = event.relatedTarget;
+        var title = button.getAttribute('data-title');
+        var img = button.getAttribute('data-img');
+        var content = button.getAttribute('data-content');
+
+        var modalTitle = document.getElementById('blogModalLabel');
+        var modalImage = document.getElementById('blogModalImage');
+        var modalContent = document.getElementById('blogModalContent');
+
+        modalTitle.textContent = title;
+        modalImage.src = img;
+        modalContent.textContent = content;
+    });
+</script>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      let searchTimeout;
+
+document.getElementById("searchBar").addEventListener("input", function () {
+    clearTimeout(searchTimeout);
+
+    let query = this.value.toLowerCase().trim();
+    if (query.length < 3) return;
+
+    searchTimeout = setTimeout(() => {
+        let apiUrl = `https://dev.to/api/articles?tag=${query}`;
+
+        document.getElementById("blogContainer").innerHTML = `
+            <div class="spinner-border text-peach" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>`;
+
+        fetch(apiUrl)
+            .then(response => {
+                if (!response.ok) throw new Error("Network response was not ok");
+                return response.json();
+            })
+            .then(data => {
+                console.log("API Response:", data);
+                let blogContainer = document.getElementById("blogContainer");
+                blogContainer.innerHTML = "";
+
+                if (data.length === 0) {
+                    blogContainer.innerHTML = `<p class="text-muted">No blogs found for "${query}". Try a different keyword.</p>`;
+                    return;
+                }
+
+                data.forEach(article => {
+                    let defaultImage = "https://img.freepik.com/premium-photo/global-food-crisis-war-climate-change_875825-17210.jpg?semt=ais_hybrid"; // Default image URL
+                    let imageUrl = article.cover_image || defaultImage;
+
+                    let blogHtml = `
+    <div class="col-md-6">
+        <div class="featured-blog shadow-lg p-4 rounded bg-white">
+            <img src="${imageUrl}" 
+                class="img-fluid rounded mb-3 w-100 blog-img"
+                alt="Blog Image" 
+                onerror="this.onerror=null; this.src='${defaultImage}';">
+            <h3 class="fw-bold text-dark">${article.title}</h3>
+            <p class="text-muted">${article.description || 'No description available.'}</p>
+            <a href="${article.url}" target="_blank" class="btn btn-peach px-4 py-2 fw-bold">Read More</a>
+        </div>
+    </div>
+`;
+
+
+                    blogContainer.innerHTML += blogHtml;
+                });
+            })
+            .catch(error => {
+                console.error("Error fetching blogs:", error);
+                document.getElementById("blogContainer").innerHTML = `<p class="text-danger">Failed to load blogs. Please try again.</p>`;
+            });
+    }, 500);
+});
+
+    </script>
+
+<script>
+document.getElementById("theme-toggle").addEventListener("click", function() {
+    document.body.classList.toggle("dark-mode");
+    localStorage.setItem("theme", document.body.classList.contains("dark-mode") ? "dark" : "light");
+});
+
+// Load theme from local storage
+window.onload = function() {
+    if (localStorage.getItem("theme") === "dark") {
+        document.body.classList.add("dark-mode");
+    }
+};
+</script>
+
+
+<script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.3.1/firebase-app.js";
+import { getFirestore, collection, doc, setDoc, getDoc } from "https://www.gstatic.com/firebasejs/11.3.1/firebase-firestore.js";
+import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.3.1/firebase-auth.js";
+
+// Firebase configuration
+const firebaseConfig = {
+apiKey: "AIzaSyAbk_u3KmsTa_et45ZhPhOZgqlqrzYE0y4",
+authDomain: "blogsweb-ec131.firebaseapp.com",
+projectId: "blogsweb-ec131",
+storageBucket: "blogsweb-ec131.appspot.com",
+messagingSenderId: "370936332298",
+appId: "1:370936332298:web:8ca8aa499bb34afbc59ff3"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const db = getFirestore(app);
+
+let savedBlogsCount = 0;
+
+// Ensure Firebase Auth is initialized before using
+onAuthStateChanged(auth, async (user) => {
+if (user) {
+    await displaySavedBlogs();
+}
+});
+
+// Function to save a blog
+async function saveBlog(blog) {
+const user = auth.currentUser;
+if (!user) {
+    alert("You need to log in to save blogs.");
+    return;
+}
+
+const userRef = doc(db, "users", user.uid);
+const userSnap = await getDoc(userRef);
+let savedBlogs = userSnap.exists() ? userSnap.data().savedBlogs || [] : [];
+const saveBtn = document.getElementById("addToFavorites");
+
+if (savedBlogs.some(b => b.title === blog.title)) {
+
+    saveBtn.innerHTML = '<i class="fas fa-check"></i> Saved';
+    saveBtn.disabled = true;
+
+    alert("This blog is already saved!");
+    return;
+}
+
+savedBlogs.push(blog);
+
+try {
+    await setDoc(userRef, { savedBlogs }, { merge: true });
+
+    alert("Blog added to favorites!");
+    updateNavbarCount(savedBlogs.length); // ✅ Update navbar count
+    toggleSaveButton(true); // ✅ Change button to "Saved"
+
+    displaySavedBlogs(); // Refresh the saved list
+} catch (error) {
+    console.error("Error saving blog:", error);
+    alert("Failed to save blog. Try again!");
+}
+}
+
+// Function to display saved blogs in modal
+async function displaySavedBlogs() {
+const user = auth.currentUser;
+if (!user) return;
+
+const userRef = doc(db, "users", user.uid);
+const userSnap = await getDoc(userRef);
+let savedBlogs = userSnap.exists() ? userSnap.data().savedBlogs || [] : [];
+const savedBlogsList = document.getElementById("savedBlogsList");
+
+savedBlogsList.innerHTML = savedBlogs.length ? "" : "<p class='text-center'>No saved blogs.</p>";
+
+savedBlogs.forEach(blog => {
+    let li = document.createElement("li");
+    li.className = "list-group-item d-flex justify-content-between align-items-center";
+    li.innerHTML = `
+        <a href="${blog.url}" target="_blank">${blog.title}</a>
+        <button class="btn btn-danger btn-sm remove-btn" data-title="${blog.title}">Remove</button>
+    `;
+    savedBlogsList.appendChild(li);
+});
+
+updateNavbarCount(savedBlogs.length); // ✅ Update navbar count
+
+document.querySelectorAll(".remove-btn").forEach(button => {
+    button.addEventListener("click", async function () {
+        const blogTitle = this.getAttribute("data-title");
+        await removeSavedBlog(blogTitle);
+    });
+});
+}
+
+// Function to remove a saved blog
+async function removeSavedBlog(blogTitle) {
+const user = auth.currentUser;
+if (!user) return;
+
+const userRef = doc(db, "users", user.uid);
+const userSnap = await getDoc(userRef);
+
+let savedBlogs = userSnap.exists() ? userSnap.data().savedBlogs || [] : [];
+savedBlogs = savedBlogs.filter(blog => blog.title !== blogTitle);
+
+await setDoc(userRef, { savedBlogs }, { merge: true });
+
+displaySavedBlogs(); // Refresh list
+alert("Blog removed from favorites!");
+
+// ✅ Reset the save button if the removed blog is the current blog
+const currentBlogTitle = document.getElementById("blogTitle").textContent.trim();
+if (currentBlogTitle === blogTitle) {
+    toggleSaveButton(false);
+}
+}
+
+// Function to update the saved blog count in navbar
+function updateNavbarCount(count) {
+savedBlogsCount = count;
+const savedBlogsBtn = document.getElementById("savedBlogsBtn");
+savedBlogsBtn.innerHTML = `<i class="fas fa-bookmark"></i> ${savedBlogsCount}`;
+}
+
+// Function to toggle save button UI
+function toggleSaveButton(isSaved) {
+const saveBtn = document.getElementById("addToFavorites");
+if (isSaved) {
+    saveBtn.innerHTML = '<i class="fas fa-check"></i> Saved';
+    saveBtn.disabled = true;
+} else {
+    saveBtn.innerHTML = '<i class="fas fa-bookmark"></i> Save';
+    saveBtn.disabled = false;
+}
+}
+
+// Event listener for saving blogs
+// document.getElementById("addToFavorites").addEventListener("click", function () {
+// const blogTitle = document.getElementById("blogTitle").textContent.trim();
+// const blogUrl = window.location.href;
+// saveBlog({ title: blogTitle, url: blogUrl });
+// });
+
+// Event listener for opening the saved blogs modal
+document.getElementById("savedBlogsBtn").addEventListener("click", function () {
+displaySavedBlogs(); // Refresh saved blogs list
+var modal = new bootstrap.Modal(document.getElementById("savedBlogsModal"));
+modal.show();
+});
+
+</script>
+<script type="module" src="auth.js"></script>
+</body>
+</html>

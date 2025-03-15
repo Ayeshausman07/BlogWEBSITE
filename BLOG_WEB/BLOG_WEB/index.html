@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>The Thought Journal 💌</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Font awesome icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="main.css">
+    
+  </head>
+  <body>
+
+    <!-- header -->
+    <header>
+      <nav class = "navbar">
+        <div class = "container">
+          <a href = "index.html" class = "navbar-brand">The Thought Journal 💌</a>
+          <div class = "navbar-nav">
+            <a href = "main.html">home</a>
+            <a href = "main.html">explore</a>
+            <a href = "main.html">blog</a>
+            <a href = "main.html">about</a>
+          </div>
+        </div>
+      </nav>
+      <div class = "banner">
+        <div class = "container">
+          <h1 class = "banner-title">
+            <span></span>The Thought Journal 💌
+          </h1>
+          <p>everything that you want to know about daily thoughts</p>
+          <div class="auth-buttons">
+            <a href="main.html" class="btn login-btn">Login</a>
+            <a href="main.html" class="btn signup-btn">Sign Up</a>
+        </div>
+        
+        </div>
+      </div>
+    </header>
+    <!-- end of header -->
+    
+   
+    <section class="container-fluid memories-section">
+        <div class="row">
+            <!-- Left Image -->
+            <div class="col-md-6 image-content text-center" data-aos="fade-right">
+                <img src="https://storage.googleapis.com/gweb-uniblog-publish-prod/images/test_hero3x2x.width-1200.format-webp.webp" alt="Memories">
+            </div>
+            <!-- Right Text -->
+            <div class="col-md-6 text-content" data-aos="fade-left">
+                <h1>Hang onto your memories</h1>
+                <p>Save the moments that matter. Blogger lets you safely store thousands of posts, photos, and more with Google.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- blog -->
+    <section class="blog" id="blog">
+        <div class="container">
+            <div class="title">
+                <h2>Exploring the World of Creativity</h2>
+                <p>Unleashing imagination through art, design, and storytelling.</p>
+            </div>
+            <div class="blog-content">
+                <!-- Blog Items -->
+                <div class="blog-item">
+                    <div class="blog-img">
+                        <img src="https://img.freepik.com/free-vector/blog-post-concept-illustration_114360-26355.jpg" alt="">
+                        <span class="heart-icon" data-id="blog1"><i class="far fa-heart"></i></span>
+                    </div>
+                    <div class="blog-text">
+                        <span>12 March, 2025</span>
+                        <h2>The Art of Visual Storytelling</h2>
+                        <p>Discover how images and design elements convey powerful narratives.</p>
+                        <a href="#" onclick="openModal('https://img.freepik.com/free-vector/blog-post-concept-illustration_114360-26355.jpg', 'The Art of Visual Storytelling', '12 March, 2025', 'Discover how images and design elements convey powerful narratives.', event)">Read More</a>
+                    </div>
+                </div>
+    
+                <div class="blog-item">
+                    <div class="blog-img">
+                        <img src="https://publir.com/blog/wp-content/uploads/2021/08/blog.jpg" alt="">
+                        <span class="heart-icon" data-id="blog1"><i class="far fa-heart"></i></span>
+                    </div>
+                    <div class="blog-text">
+                        <span>5 March, 2025</span>
+                        <h2>Design Trends That Inspire</h2>
+                        <p>Exploring modern design trends shaping the creative industry.</p>
+                        <a href="#" onclick="openModal('https://publir.com/blog/wp-content/uploads/2021/08/blog.jpg', 'Design Trends That Inspire', '5 March, 2025', 'Exploring modern design trends shaping the creative industry.', event)">Read More</a>
+                    </div>
+                </div>
+    
+                <div class="blog-item">
+                    <div class="blog-img">
+                        <img src="https://static.vecteezy.com/system/resources/thumbnails/010/925/555/small_2x/blog-social-media-platform-influencer-personal-brand-promotion-recent-stories-and-post-attract-followers-and-subscriptions-viral-content-flat-design-modern-illustration-vector.jpg" alt="">
+                        <span class="heart-icon" data-id="blog1"><i class="far fa-heart"></i></span>
+                    </div>
+                    <div class="blog-text">
+                        <span>28 February, 2025</span>
+                        <h2>The Power of Color Psychology</h2>
+                        <p>How colors influence emotions, branding, and design choices.</p>
+                        <a href="#" onclick="openModal('https://static.vecteezy.com/system/resources/thumbnails/010/925/555/small_2x/blog-social-media-platform-influencer-personal-brand-promotion-recent-stories-and-post-attract-followers-and-subscriptions-viral-content-flat-design-modern-illustration-vector.jpg', 'The Power of Color Psychology', '28 February, 2025', 'How colors influence emotions, branding, and design choices.', event)">Read More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    
+ 
+
+     <div id="blogModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <img id="modalImage" src="" alt="">
+            <h2 id="modalTitle"></h2>
+            <p class="modal-date" id="modalDate"></p>
+            <p id="modalText"></p>
+        </div>
+    </div>
+    
+
+    <!-- about -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-content">
+                <!-- Left Image -->
+                <div data-aos="fade-right">
+                    <img src="assets/logoo.png" alt="About Image">
+                </div>
+                <!-- Right Text -->
+                <div class="about-text" data-aos="fade-left">
+                    <div class="title">
+                        <h2>The Thought Journal 💌</h2>
+                        <p>Where words breathe and ideas take flight</p>
+                    </div>
+                    <p>Welcome to <b>The Thought Journal 💌</b>, a space where creativity meets expression. Founded by <b>AISHA</b>, this blog is a heartfelt collection of thoughts, experiences, and inspirations that aim to ignite curiosity and spark meaningful conversations.</p>
+                    <p>Every story here is woven with passion, embracing art, design, and the beauty of words. Whether it's deep reflections, artistic musings, or personal journeys, <b>The Thought Journal</b> invites you to embark on a journey through the power of storytelling. Let’s create, dream, and inspire—together.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- end of about -->
+     <!-- Bootstrap Modal -->
+<div class="modal fade" id="blogModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalTitle">Blog Title</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body text-center">
+                <img id="modalImage" src="" class="img-fluid mb-3" alt="Blog Image">
+                <p class="text-muted" id="modalDate"></p>
+                <p id="modalContent"></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+    <!-- footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/ayesha-usman-413879302/"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.linkedin.com/in/ayesha-usman-413879302/"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.linkedin.com/in/ayesha-usman-413879302/"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.linkedin.com/in/ayesha-usman-413879302/"><i class="fab fa-pinterest"></i></a>
+            </div>
+            <span>© 2025 The Thought Journal 💌 | Created with ❤️ by AISHA</span>
+        </div>
+    </footer>
+    
+    <!-- end of footer -->
+
+    <script>
+        function openModal(imageSrc, title, date, text, event) {
+    if (event) event.preventDefault(); // Prevents page refresh
+    document.getElementById('modalImage').src = imageSrc;
+    document.getElementById('modalTitle').textContent = title;
+    document.getElementById('modalDate').textContent = date;
+    document.getElementById('modalText').textContent = text;
+    document.getElementById('blogModal').style.display = "flex";
+}
+
+function closeModal() {
+    document.getElementById('blogModal').style.display = "none";
+}
+
+
+    </script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+    const categoryFilter = document.getElementById("categoryFilter");
+    const searchBar = document.getElementById("searchBar");
+    const blogContainer = document.getElementById("blogContainer");
+    const blogItems = document.querySelectorAll(".blog-item");
+
+    // Filter by Category
+    categoryFilter.addEventListener("change", function () {
+        filterBlogs();
+    });
+
+    // Search by Tags
+    searchBar.addEventListener("keyup", function () {
+        filterBlogs();
+    });
+
+    function filterBlogs() {
+        const selectedCategory = categoryFilter.value.toLowerCase();
+        const searchQuery = searchBar.value.toLowerCase();
+
+        blogItems.forEach((blog) => {
+            const blogCategory = blog.getAttribute("data-category").toLowerCase();
+            const blogTags = blog.getAttribute("data-tags").toLowerCase();
+
+            if ((selectedCategory === "all" || blogCategory === selectedCategory) &&
+                (searchQuery === "" || blogTags.includes(searchQuery))) {
+                blog.style.display = "block";
+            } else {
+                blog.style.display = "none";
+            }
+        });
+    }
+
+    // Open Modal with Blog Details
+    document.querySelectorAll(".openModal").forEach(button => {
+        button.addEventListener("click", function () {
+            const title = this.getAttribute("data-title");
+            const image = this.getAttribute("data-image");
+            const date = this.getAttribute("data-date");
+            const content = this.getAttribute("data-content");
+
+            document.getElementById("modalTitle").innerText = title;
+            document.getElementById("modalImage").src = image;
+            document.getElementById("modalDate").innerText = date;
+            document.getElementById("modalContent").innerText = content;
+
+            new bootstrap.Modal(document.getElementById("blogModal")).show();
+        });
+    });
+});
+
+    </script>
+
+    <script>
+          document.addEventListener("DOMContentLoaded", function () {
+        const heartIcons = document.querySelectorAll(".heart-icon");
+
+        heartIcons.forEach(heart => {
+            const blogId = heart.getAttribute("data-id");
+            const icon = heart.querySelector("i");
+
+            // Check stored state on page load
+            if (localStorage.getItem(blogId) === "liked") {
+                icon.classList.replace("far", "fas");
+                heart.style.color = "red";
+            }
+
+            // Toggle heart on single click
+            heart.addEventListener("click", function () {
+                if (icon.classList.contains("far")) {
+                    icon.classList.replace("far", "fas");
+                    heart.style.color = "red";
+                    localStorage.setItem(blogId, "liked");
+                } else {
+                    icon.classList.replace("fas", "far");
+                    heart.style.color = "black";
+                    localStorage.removeItem(blogId);
+                }
+            });
+        });
+    });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+
+
+
+    
+  </body>
+</html>

@@ -1,0 +1,1048 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Thought Journal 💌</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script type="module" src="homepage.js"></script>
+    <style>
+        /* General Styles */
+        body {
+            background-color: #f4f7f6;
+        }
+
+        /* Blog Form Card */
+        .card {
+            border: none;
+            background: #ffffff;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+            border-radius: 16px;
+            padding: 30px;
+        }
+
+        /* Form Labels */
+        .form-label {
+            font-weight: 600;
+            color: #6c757d;
+            font-size: 1.1rem;
+        }
+
+        /* Form Inputs */
+        .form-control {
+            border-radius: 12px;
+            border: 1px solid #ced4da;
+            transition: all 0.3s ease-in-out;
+            font-size: 1rem;
+            padding: 12px;
+            background: #f8f9fa;
+        }
+
+        .form-control:focus {
+            border-color: #6c757d;
+            box-shadow: 0 0 10px rgba(108, 117, 125, 0.2);
+            background: #ffffff;
+        }
+
+        /* File Input Customization */
+        .form-control[type="file"] {
+            padding: 12px;
+            background: #f8f9fa;
+        }
+
+        /* Submit Button */
+        .btn-success {
+            background: #8bc34a;
+            border: none;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            transition: all 0.3s ease-in-out;
+            padding: 12px;
+            color: #ffffff;
+        }
+
+        .btn-success:hover {
+            background: #7cb342;
+            transform: scale(1.03);
+        }
+
+        /* Image Preview */
+        .img-preview {
+            max-height: 200px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+            margin-top: 10px;
+        }
+
+        /* Responsive Tweaks */
+        @media (max-width: 768px) {
+            .card {
+                padding: 20px;
+            }
+        }
+
+
+        .blog-banner {
+            background: url('assets/NEWBANNER6.png') center/cover no-repeat;
+            height: 60vh;
+            /* Default height for larger screens */
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.4);
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 1200px) {
+            .blog-banner {
+                height: 50vh;
+                /* Adjust height for medium screens */
+            }
+        }
+
+        @media (max-width: 992px) {
+            .blog-banner {
+                height: 40vh;
+                /* Adjust height for tablets */
+            }
+        }
+
+        @media (max-width: 768px) {
+            .blog-banner {
+                height: 30vh;
+                /* Adjust height for smaller tablets and large phones */
+            }
+        }
+
+        @media (max-width: 576px) {
+            .blog-banner {
+                height: 25vh;
+                /* Adjust height for mobile phones */
+                background-size: contain;
+                /* Ensure the entire image is visible on small screens */
+            }
+        }
+
+
+
+        .nav-link.active {
+            font-weight: bold;
+            color: #28a745 !important;
+            /* Green color for active link */
+            border-bottom: 2px solid #28a745;
+            /* Optional underline effect */
+        }
+
+        .blog-card {
+            background: #ffe5b4;
+            /* Light peach background */
+            border-radius: 15px;
+            overflow: hidden;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .blog-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .blog-card img {
+            border-radius: 15px 15px 0 0;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .blog-card:hover img {
+            transform: scale(1.05);
+        }
+
+        .blog-card .card-body {
+            padding: 15px;
+            text-align: center;
+        }
+
+        .blog-card .card-title {
+            font-family: 'Pacifico', cursive;
+            color: #d35400;
+            /* Dark peach color */
+        }
+
+        .blog-card .text-muted {
+            font-style: italic;
+            color: #8d6e63;
+        }
+
+        .edit-btn {
+            background: #ff6f61;
+            border: none;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            transition: background 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+
+        .edit-btn:hover {
+            background: #e64c3c;
+            box-shadow: 0 4px 10px rgba(255, 111, 97, 0.5);
+        }
+
+        .modal-content {
+            border-radius: 15px;
+            overflow: hidden;
+            animation: fadeIn 0.5s ease-in-out;
+            background: #fffaf0;
+            /* Light peach background */
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .modal-header {
+            background: #ff6f61;
+            color: white;
+            font-family: 'Pacifico', cursive;
+        }
+
+        .modal-header h5 {
+            margin: 0 auto;
+        }
+
+        .modal-body {
+            text-align: center;
+        }
+
+        .modal-body img {
+            border-radius: 10px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .modal-body img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .blog-images {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .blog-images img {
+            width: 45%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .modal-footer {
+            background: #ffe5b4;
+            /* Light peach */
+        }
+
+        .read-btn {
+            background: #28a745;
+            border: none;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            transition: background 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+
+        .read-btn:hover {
+            background: #218838;
+            box-shadow: 0 4px 10px rgba(40, 167, 69, 0.5);
+        }
+
+        /* 🔥 Smooth Fade-in Animation */
+        .modal.fade .modal-dialog {
+            transform: translateY(-20px);
+            opacity: 0;
+            transition: all 0.4s ease-in-out;
+        }
+
+        .modal.show .modal-dialog {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        /* 🌟 Unique Modal Style */
+        .custom-modal .modal-content {
+            background: #FFF5E1;
+            /* Light Peach */
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        /* ✨ Header Styling */
+        .custom-modal .modal-header {
+            background: #FFD699;
+            color: #6B4226;
+            border-bottom: 2px solid #FFCC80;
+            border-radius: 12px 12px 0 0;
+            padding: 12px 20px;
+        }
+
+        /* ✅ Close Button (Now Visible) */
+        .custom-modal .btn-close {
+            color: black !important;
+            font-size: 18px;
+            opacity: 0.8;
+        }
+
+        .custom-modal .btn-close:hover {
+            opacity: 1;
+            transform: scale(1.1);
+        }
+
+        /* 📸 Improved Image Styling */
+        .custom-modal .modal-body img {
+            max-height: 220px;
+            width: 100%;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .custom-modal .modal-body img:hover {
+            transform: scale(1.05);
+            /* Slight zoom effect */
+        }
+
+        /* 🏷️ Tags Styling */
+        #modalTags .badge {
+            background: #FFA726;
+            color: white;
+            padding: 6px 10px;
+            font-size: 14px;
+            border-radius: 8px;
+        }
+
+        /* 📖 Read More Button */
+        .custom-modal .modal-footer .btn-warning {
+            background: linear-gradient(135deg, #FFB74D, #FF9800);
+            border: none;
+            font-weight: bold;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .custom-modal .modal-footer .btn-warning:hover {
+            background: linear-gradient(135deg, #FF9800, #F57C00);
+            transform: scale(1.05);
+        }
+
+        #savedBlogsBtn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            /* Adjust size */
+            height: 50px;
+            /* Adjust size */
+            border-radius: 50%;
+            /* Makes it circular */
+            background: transparent;
+            /* Keeps it clean */
+            border: none;
+            /* Removes default button styles */
+        }
+
+        #savedCount {
+            margin-left: 8px;
+            /* Adjust space as needed */
+            font-weight: bold;
+            gap: 4px;
+            /* Make count more visible */
+        }
+        .col-md-6{
+            margin-bottom: 20px;
+        }
+    </style>
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+        <div class="container d-flex justify-content-between align-items-center">
+            <!-- Logo & Title -->
+            <a class="navbar-brand d-flex align-items-center" href="#">
+                <img src="assets/logoo.png" width="120" alt="Logo" class="me-2 img-fluid">
+                <h1 class="blog-titlee m-0 fs-4 d-none d-md-block">The Thought Journal 💌</h1>
+                <h1 class="blog-titlee m-0 fs-6 d-block d-md-none">The Thought Journal 💌</h1>
+            </a>
+
+            <!-- Navbar Toggler for Mobile -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Navbar Items -->
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav align-items-center">
+                    <li class="nav-item"><a href="homepage.html" class="nav-link me-3">Home</a></li>
+                    <li class="nav-item"><a href="explore.html" class="nav-link me-3">Explore</a></li>
+                    <li class="nav-item"><a href="addblog.html" class="nav-link me-3">Add Blog</a></li>
+                    <li class="nav-item"><a href="#" id="logout" class="nav-link me-3">Logout</a></li>
+
+                    <!-- Bookmark Button (with Count) -->
+                    <li class="nav-item d-flex align-items-center">
+                        <button id="savedBlogsBtn" class="nav-link d-flex align-items-center">
+                            <i class="fas fa-bookmark"></i>
+                            <span id="savedCount" class="ms-2"></span>
+                        </button>
+                    </li>
+
+                    <!-- Theme Toggle Button -->
+                    <li class="nav-item">
+                        <button id="theme-toggle" class="btn btn-light d-flex align-items-center p-2">
+                            <i class="fas fa-moon"></i>
+                        </button>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- Blog Banner -->
+    <div id="blogBanner" class="blog-banner position-relative text-white text-center">
+        <div class="banner-overlay d-flex flex-column justify-content-center align-items-center">
+            <!-- Content goes here -->
+        </div>
+    </div>
+
+    <!-- Blog Post Form -->
+    <!-- <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="card shadow-lg border-0 rounded-4 mb-5">
+                    <div class="card-body p-5">
+                        <h2 class="text-center fw-bold text-success mb-4">Add a Blog Post</h2>
+                        <form id="blogForm">
+
+                        
+                            <div class="mb-4">
+                                <label class="form-label fs-5 text-success fw-bold">Blog Title</label>
+                                <input type="text" class="form-control form-control-lg" id="blogTitle" required>
+                            </div>
+
+                         
+                            <div class="mb-4">
+                                <label class="form-label fs-5 text-success fw-bold">Author</label>
+                                <input type="text" class="form-control form-control-lg" id="blogAuthor" required>
+                            </div>
+
+                            <div class="mb-4">
+                                <label class="form-label fs-5 text-success fw-bold">Content</label>
+                                <textarea class="form-control" rows="6" id="blogContent" required></textarea>
+                            </div>
+
+                          
+                            <div class="mb-4">
+                                <label class="form-label fs-5 text-success fw-bold">Upload Image</label>
+                                <input type="file" class="form-control" id="blogImage" accept="image/*" required>
+                            </div>
+
+                        
+                             <div class="mb-4">
+                                <label class="form-label fs-5 text-success fw-bold">Cover Image</label>
+                                <input type="file" class="form-control" id="coverImage" accept="image/*" required>
+                            </div> 
+
+                        
+                            <div class="d-grid gap-2">
+                                <button type="submit" class="btn btn-success btn-lg">
+                                    <i class="fas fa-paper-plane me-2"></i>Publish Blog
+                                </button>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+
+              
+                <div id="blogPostsContainer" class="row g-4"></div>
+            </div>
+        </div>
+    </div> -->
+
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="card shadow-lg border-0 rounded-4 mb-5">
+                    <div class="card-body p-5">
+                        <h2 class="text-center fw-bold text-success mb-4">Add a Blog Post</h2>
+                        <form id="blogForm">
+
+                            <!-- Blog Title -->
+                            <div class="mb-4">
+                                <label class="form-label fs-5 text-success fw-bold">Blog Title</label>
+                                <input type="text" class="form-control form-control-lg" id="blogTitle" required>
+                            </div>
+
+                          
+
+                            <!-- Author Name -->
+                            <div class="mb-4">
+                                <label class="form-label fs-5 text-success fw-bold">Author</label>
+                                <input type="text" class="form-control form-control-lg" id="blogAuthor" required>
+                            </div>
+
+                            <!-- Blog Content -->
+                            <div class="mb-4">
+                                <label class="form-label fs-5 text-success fw-bold">Content</label>
+                                <textarea class="form-control" rows="6" id="blogContent" required></textarea>
+                            </div>
+
+                            <!-- Blog Category -->
+                            <!-- Blog Category Selection -->
+                            <div class="mb-4">
+                                <label class="form-label fs-5 text-success fw-bold">Category</label>
+                                <select class="form-select form-select-lg" id="blogCategory">
+                                    <option value="">-- Select a Category --</option>
+                                    <option value="Food">🍕 Food</option>
+                                    <option value="Travel">✈️ Travel</option>
+                                    <option value="Technology">💻 Technology</option>
+                                    <option value="Lifestyle">🌿 Lifestyle</option>
+                                    <option value="Health">💪 Health</option>
+                                    <option value="Education">📚 Education</option>
+                                </select>
+                            </div>
+
+                            <!-- Add Custom Category Option -->
+                            <div class="mb-4">
+                                <button type="button" class="btn btn-outline-success" id="addCustomCategoryBtn">
+                                    ➕ Add Custom Category
+                                </button>
+                                <input type="text" class="form-control mt-3 d-none" id="customCategoryInput"
+                                    placeholder="Enter your custom category">
+                            </div>
+
+
+                            <div class="mb-4">
+                                <label class="form-label fs-5 text-success fw-bold">Tags</label>
+                                <div class="input-group">
+                                    <input type="text" class="form-control" id="tagInput"
+                                        placeholder="Type a tag and press Enter">
+                                    <button class="btn btn-success" type="button" onclick="addTag()">Add</button>
+                                </div>
+                                <div id="tagsContainer" class="mt-2"></div>
+                                <input type="hidden" id="blogTags"> <!-- Hidden Input to Store Tags -->
+                            </div>
+
+
+
+                            <!-- Upload Image -->
+                            <div class="mb-4">
+                                <label class="form-label fs-5 text-success fw-bold">Upload Blog Image</label>
+                                <input type="file" class="form-control" id="blogImage" accept="image/*" required>
+                            </div>
+
+                    
+
+                            <!-- Featured Blog Toggle -->
+                            <div class="form-check form-switch mb-4">
+                                <input class="form-check-input" type="checkbox" id="featuredBlog">
+                                <label class="form-check-label fs-5 text-success fw-bold" for="featuredBlog">Mark as
+                                    Featured</label>
+                            </div>
+
+                            <!-- Preview Button -->
+                            <div class="d-grid gap-2">
+                                <button type="button" class="btn btn-outline-secondary btn-lg" onclick="previewBlog()">
+                                    <i class="fas fa-eye me-2"></i>Preview Blog
+                                </button>
+                            </div>
+
+                            <!-- Submit Button -->
+                            <div class="d-grid gap-2 mt-3">
+                                <button type="submit" class="btn btn-success btn-lg">
+                                    <i class="fas fa-paper-plane me-2"></i>Publish Blog
+                                </button>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Blog Posts Container -->
+                <div id="blogPostsContainer" class="row g-4"></div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Blog Modal -->
+    <div class="modal fade custom-modal" id="blogModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-md"> <!-- Small modal -->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title fw-bold" id="modalBlogTitle"></h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button> <!-- X Button Fixed -->
+                </div>
+                <div class="modal-body text-center">
+                    <img src="" class="img-fluid mb-3 rounded" id="modalBlogImage" alt="Blog Cover">
+                    <h6 class="text-muted" id="modalAuthor"></h6>
+                    <h6 class="text-muted" id="modalDate"></h6>
+                    <div id="modalTags" class="mb-2"></div>
+                    <p class="text-secondary" id="modalShortDescription"></p>
+                    <p class="text-success fw-bold" id="modalReadTime"></p>
+                </div>
+                <div class="modal-footer justify-content-center">
+                    <a id="readMoreBtn" class="btn btn-warning text-dark">
+                        <i class="fas fa-book-open me-2"></i> Read More
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Blog List/Grid View -->
+    <div class="container mt-5">
+        <h2 class="text-center fw-bold text-success mb-4">Latest Blog Posts</h2>
+        <div class="row" id="blogContainer">
+            <!-- Blogs will be displayed here dynamically -->
+        </div>
+
+   
+    </div>
+
+    <!-- Saved Blogs Modal -->
+    <div class="modal fade" id="savedBlogsModal" tabindex="-1" aria-labelledby="savedBlogsModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="savedBlogsModalLabel">Saved Blogs</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <ul id="savedBlogsList" class="list-group"></ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer  -->
+    <footer class="bg-light py-4 mt-5">
+        <div class="container d-flex flex-wrap justify-content-between">
+            <div class="footer-about">
+                <h4 class="fw-bold"><img src="assets/logoo.png" width="150" alt="Logo"><span class="blog-titlee"> The Thought Journal 💌</span></h4>
+                <p>
+                    I'm Aisha Usman, a CS student and a foodie. I love sharing my passion for recipes, technology, and creativity. 
+                    Through this blog, I explore and share my experiences in food, coding, and lifestyle.
+                </p>
+                <div class="social-icons mt-2">
+                    <a href="https://www.linkedin.com/in/ayesha-usman-413879302/" class="me-2"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" class="me-2"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="me-2"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="footer-links">
+                <h5 class="fw-bold">Links</h5>
+                <ul class="list-unstyled">
+                    <li><a href="homepage.html">Homepage</a></li>
+                    <li><a href="explore.html">Blog</a></li>
+                    <li><a href="addblog.html">Add Blog</a></li>
+                    <li><a href="homepage.html">Search Blogs</a></li>
+                </ul>
+            </div>
+            <div class="footer-tags">
+                <h5 class="fw-bold">Tags</h5>
+                <ul class="list-unstyled">
+                    <li><a href="homepage.html">Food</a></li>
+                    <li><a href="homepage.html">Recipes</a></li>
+                    <li><a href="homepage.html">Coding</a></li>
+                    <li><a href="homepage.html">Technology</a></li>
+                </ul>
+            </div>
+            <div class="footer-social">
+                <h5 class="fw-bold">Social</h5>
+                <ul class="list-unstyled">
+                    <li><a href="https://www.linkedin.com/in/ayesha-usman-413879302/">LinkedIn</a></li>
+                    <li><a href="#">Instagram</a></li>
+                    <li><a href="#">Facebook</a></li>
+                    <li><a href="#">YouTube</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            let text = "Discover Amazing tips & Experience!";
+            let typingText = document.getElementById("typingText");
+            let index = 0;
+
+            function typeWriter() {
+                if (index < text.length) {
+                    typingText.innerHTML += text.charAt(index);
+                    index++;
+                    setTimeout(typeWriter, 100);
+                }
+            }
+            typeWriter();
+        });
+    </script>
+
+    <script>
+      let isPreviewVisible = false; // Track preview visibility
+let uploadedImageUrl = ""; // Store uploaded image URL
+
+async function previewBlog() {
+    // Toggle preview on second click
+    let previewContainer = document.getElementById("blogPreviewContainer");
+    if (isPreviewVisible) {
+        previewContainer.innerHTML = "";
+        isPreviewVisible = false;
+        return;
+    }
+
+    // Get form values
+    let title = document.getElementById("blogTitle").value;
+    let author = document.getElementById("blogAuthor").value;
+    let content = document.getElementById("blogContent").value;
+    let category = document.getElementById("customCategoryInput").value.trim() || document.getElementById("blogCategory").value;
+    let featured = document.getElementById("featuredBlog").checked ? "🌟 Featured" : "";
+
+    // Tags Handling
+    let tagsInput = document.getElementById("blogTags").value;
+    let tagsArray = tagsInput ? tagsInput.split(",") : [];
+
+    // Image Handling
+    let imageInput = document.getElementById("blogImage");
+    if (imageInput.files.length > 0) {
+        let imageFile = imageInput.files[0];
+        uploadedImageUrl = URL.createObjectURL(imageFile); // Temporary preview image
+    }
+
+    // Check if required fields are empty
+    if (!title || !author || !content) {
+        alert("Please fill out all required fields!");
+        return;
+    }
+
+    // Blog Data Object
+    const blogData = {
+        title: title,
+        author: author,
+        content: content,
+        imageUrl: uploadedImageUrl || "https://via.placeholder.com/600x400", // Default image
+        authorId: "currentUser.uid", // Placeholder for now, replace dynamically
+        createdAt: new Date().toLocaleString(),
+        category: category,
+        tags: tagsArray,
+    };
+
+    // Generate preview HTML
+    let previewHTML = `
+        <div class="card shadow-lg border rounded-4 p-4 mt-4 bg-light">
+            <h3 class="text-success fw-bold">${blogData.title}</h3>
+            <p class="text-muted">By ${blogData.author}</p>
+            ${featured ? `<span class="badge bg-warning">${featured}</span>` : ""}
+            <p class="mt-3">${blogData.content}</p>
+            <img src="${blogData.imageUrl}" class="img-fluid rounded-3 mt-3" alt="Blog Image">
+            <p class="text-secondary mt-2"><strong>Category:</strong> ${blogData.category}</p>
+            <p class="text-secondary mt-2"><strong>Tags:</strong> ${blogData.tags.join(", ")}</p>
+            <button class="btn btn-danger mt-3" onclick="previewBlog()">Close Preview</button>
+        </div>
+    `;
+
+    // Append Preview
+    if (!previewContainer) {
+        previewContainer = document.createElement("div");
+        previewContainer.id = "blogPreviewContainer";
+        previewContainer.classList.add("mt-4");
+        document.getElementById("blogForm").appendChild(previewContainer);
+    }
+    previewContainer.innerHTML = previewHTML;
+    isPreviewVisible = true; // Mark preview as visible
+}
+
+
+    </script>
+
+    <script>
+        document.getElementById("theme-toggle").addEventListener("click", function () {
+            document.body.classList.toggle("dark-mode");
+            localStorage.setItem("theme", document.body.classList.contains("dark-mode") ? "dark" : "light");
+        });
+
+        // Load theme from local storage
+        window.onload = function () {
+            if (localStorage.getItem("theme") === "dark") {
+                document.body.classList.add("dark-mode");
+            }
+        };
+
+
+    </script>
+
+    <script>
+        document.getElementById("addCustomCategoryBtn").addEventListener("click", function () {
+            let customInput = document.getElementById("customCategoryInput");
+            customInput.classList.toggle("d-none"); // Show/Hide input field
+            customInput.focus();
+        });
+
+        document.getElementById("blogForm").addEventListener("submit", function (event) {
+            let categoryDropdown = document.getElementById("blogCategory");
+            let customCategoryInput = document.getElementById("customCategoryInput");
+
+            if (customCategoryInput && !customCategoryInput.classList.contains("d-none") && customCategoryInput.value.trim() !== "") {
+                categoryDropdown.innerHTML += `<option value="${customCategoryInput.value.trim()}" selected>${customCategoryInput.value.trim()}</option>`;
+            }
+        });
+    </script>
+
+    <script>
+        let tags = [];
+
+        function addTag() {
+            const tagInput = document.getElementById("tagInput");
+            const tagsContainer = document.getElementById("tagsContainer");
+            const blogTags = document.getElementById("blogTags");
+
+            let tagValue = tagInput.value.trim();
+
+            if (tagValue && !tags.includes(tagValue)) {
+                tags.push(tagValue);
+
+                // ✅ Create Badge for Tag
+                let tagBadge = document.createElement("span");
+                tagBadge.className = "badge bg-success text-light me-2 p-2";
+                tagBadge.innerHTML = `${tagValue} <span class="ms-1" onclick="removeTag('${tagValue}')" style="cursor:pointer;">❌</span>`;
+
+                tagsContainer.appendChild(tagBadge);
+
+                // ✅ Update Hidden Input
+                blogTags.value = tags.join(",");
+
+                // ✅ Clear Input
+                tagInput.value = "";
+            }
+        }
+
+        // ✅ Remove Tag Function
+        function removeTag(tag) {
+            tags = tags.filter(t => t !== tag);
+            document.getElementById("tagsContainer").innerHTML = "";
+            tags.forEach(t => addTagFromArray(t));
+
+            // ✅ Update Hidden Input
+            document.getElementById("blogTags").value = tags.join(",");
+        }
+
+        // ✅ Helper Function for Re-rendering Tags
+        function addTagFromArray(tagValue) {
+            const tagsContainer = document.getElementById("tagsContainer");
+
+            let tagBadge = document.createElement("span");
+            tagBadge.className = "badge bg-success text-light me-2 p-2";
+            tagBadge.innerHTML = `${tagValue} <span class="ms-1" onclick="removeTag('${tagValue}')" style="cursor:pointer;">❌</span>`;
+
+            tagsContainer.appendChild(tagBadge);
+        }
+
+        // ✅ Handle Enter Key
+        document.getElementById("tagInput").addEventListener("keypress", function (event) {
+            if (event.key === "Enter") {
+                event.preventDefault();
+                addTag();
+            }
+        });
+
+    </script>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.3.1/firebase-app.js";
+        import { getFirestore, collection, doc, setDoc, getDoc } from "https://www.gstatic.com/firebasejs/11.3.1/firebase-firestore.js";
+        import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.3.1/firebase-auth.js";
+
+        // Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyAbk_u3KmsTa_et45ZhPhOZgqlqrzYE0y4",
+            authDomain: "blogsweb-ec131.firebaseapp.com",
+            projectId: "blogsweb-ec131",
+            storageBucket: "blogsweb-ec131.appspot.com",
+            messagingSenderId: "370936332298",
+            appId: "1:370936332298:web:8ca8aa499bb34afbc59ff3"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+        const db = getFirestore(app);
+
+        let savedBlogsCount = 0;
+
+        // Ensure Firebase Auth is initialized before using
+        onAuthStateChanged(auth, async (user) => {
+            if (user) {
+                await displaySavedBlogs();
+            }
+        });
+
+        // Function to save a blog
+        async function saveBlog(blog) {
+            const user = auth.currentUser;
+            if (!user) {
+                alert("You need to log in to save blogs.");
+                return;
+            }
+
+            const userRef = doc(db, "users", user.uid);
+            const userSnap = await getDoc(userRef);
+            let savedBlogs = userSnap.exists() ? userSnap.data().savedBlogs || [] : [];
+            const saveBtn = document.getElementById("addToFavorites");
+
+            if (savedBlogs.some(b => b.title === blog.title)) {
+
+                saveBtn.innerHTML = '<i class="fas fa-check"></i> Saved';
+                saveBtn.disabled = true;
+
+                alert("This blog is already saved!");
+                return;
+            }
+
+            savedBlogs.push(blog);
+
+            try {
+                await setDoc(userRef, { savedBlogs }, { merge: true });
+
+                alert("Blog added to favorites!");
+                updateNavbarCount(savedBlogs.length); // ✅ Update navbar count
+                toggleSaveButton(true); // ✅ Change button to "Saved"
+
+                displaySavedBlogs(); // Refresh the saved list
+            } catch (error) {
+                console.error("Error saving blog:", error);
+                alert("Failed to save blog. Try again!");
+            }
+        }
+
+        // Function to display saved blogs in modal
+        async function displaySavedBlogs() {
+            const user = auth.currentUser;
+            if (!user) return;
+
+            const userRef = doc(db, "users", user.uid);
+            const userSnap = await getDoc(userRef);
+            let savedBlogs = userSnap.exists() ? userSnap.data().savedBlogs || [] : [];
+            const savedBlogsList = document.getElementById("savedBlogsList");
+
+            savedBlogsList.innerHTML = savedBlogs.length ? "" : "<p class='text-center'>No saved blogs.</p>";
+
+            savedBlogs.forEach(blog => {
+                let li = document.createElement("li");
+                li.className = "list-group-item d-flex justify-content-between align-items-center";
+                li.innerHTML = `
+            <a href="${blog.url}" target="_blank">${blog.title}</a>
+            <button class="btn btn-danger btn-sm remove-btn" data-title="${blog.title}">Remove</button>
+        `;
+                savedBlogsList.appendChild(li);
+            });
+
+            updateNavbarCount(savedBlogs.length); // ✅ Update navbar count
+
+            document.querySelectorAll(".remove-btn").forEach(button => {
+                button.addEventListener("click", async function () {
+                    const blogTitle = this.getAttribute("data-title");
+                    await removeSavedBlog(blogTitle);
+                });
+            });
+        }
+
+        // Function to remove a saved blog
+        async function removeSavedBlog(blogTitle) {
+            const user = auth.currentUser;
+            if (!user) return;
+
+            const userRef = doc(db, "users", user.uid);
+            const userSnap = await getDoc(userRef);
+
+            let savedBlogs = userSnap.exists() ? userSnap.data().savedBlogs || [] : [];
+            savedBlogs = savedBlogs.filter(blog => blog.title !== blogTitle);
+
+            await setDoc(userRef, { savedBlogs }, { merge: true });
+
+            displaySavedBlogs(); // Refresh list
+            alert("Blog removed from favorites!");
+
+            // ✅ Reset the save button if the removed blog is the current blog
+            const currentBlogTitle = document.getElementById("blogTitle").textContent.trim();
+            if (currentBlogTitle === blogTitle) {
+                toggleSaveButton(false);
+            }
+        }
+
+        // Function to update the saved blog count in navbar
+        function updateNavbarCount(count) {
+            savedBlogsCount = count;
+            const savedBlogsBtn = document.getElementById("savedBlogsBtn");
+            savedBlogsBtn.innerHTML = `<i class="fas fa-bookmark"></i> ${savedBlogsCount}`;
+        }
+
+        // Function to toggle save button UI
+        function toggleSaveButton(isSaved) {
+            const saveBtn = document.getElementById("addToFavorites");
+            if (isSaved) {
+                saveBtn.innerHTML = '<i class="fas fa-check"></i> Saved';
+                saveBtn.disabled = true;
+            } else {
+                saveBtn.innerHTML = '<i class="fas fa-bookmark"></i> Save';
+                saveBtn.disabled = false;
+            }
+        }
+
+        // Event listener for saving blogs
+        // document.getElementById("addToFavorites").addEventListener("click", function () {
+        // const blogTitle = document.getElementById("blogTitle").textContent.trim();
+        // const blogUrl = window.location.href;
+        // saveBlog({ title: blogTitle, url: blogUrl });
+        // });
+
+        // Event listener for opening the saved blogs modal
+        document.getElementById("savedBlogsBtn").addEventListener("click", function () {
+            displaySavedBlogs(); // Refresh saved blogs list
+            var modal = new bootstrap.Modal(document.getElementById("savedBlogsModal"));
+            modal.show();
+        });
+
+    </script>
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    <script type="module" src="addblog.js"></script>
+
+</body>
+
+</html>

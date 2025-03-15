@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Thought Journal 💌</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Bundle (JS + Popper.js) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Lora:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script type="module" src="homepage.js"></script>
+</head>
+<style>
+    /* 🌟 Blog Box Styling */
+    .blog-box {
+    background: #fff;
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    max-width: 100%;
+}
+
+.blog-image-container {
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+#blogImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.suggested-blog-card {
+    background: #f8f9fa;
+    transition: transform 0.3s ease-in-out;
+}
+
+.suggested-blog-card:hover {
+    transform: scale(1.03);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.dark-mode .ss h4{
+    color: white !important;
+}
+
+#blogTitle {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #333;
+}
+
+.blog-image-container {
+    width: 100%;
+    height: 300px; /* Fixed height for consistency */
+    overflow: hidden;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+#blogImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures the image covers the entire space */
+    border-radius: 10px;
+}
+
+.text-muted, .blog-text {
+    font-size: 1rem;
+    color: #555;
+}
+
+.section-title {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #444;
+}
+
+.badge {
+    font-size: 0.9rem;
+    padding: 8px 12px;
+    border-radius: 20px;
+    font-weight: 500;
+}
+
+#blogTags {
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+.save-blog-btn {
+    background: #ff9800;
+    color: #fff;
+    border-radius: 25px;
+    font-size: 1rem;
+    padding: 10px 20px;
+}
+
+.save-blog-btn:hover {
+    background: #e68900;
+}
+
+#deleteBlog {
+    font-size: 1rem;
+    padding: 10px 20px;
+    border-radius: 25px;
+}
+
+
+/* 💾 Save & Delete Button */
+.save-blog-btn {
+    background: linear-gradient(135deg, #ff6f61, #ff9478);
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    transition: transform 0.2s ease-in-out;
+}
+
+.save-blog-btn:hover {
+    transform: scale(1.05);
+    background: linear-gradient(135deg, #ff4742, #ff6b6b);
+}
+
+.btn-danger {
+    border-radius: 10px;
+    font-size: 1.1rem;
+    transition: transform 0.2s ease-in-out;
+}
+
+.btn-danger:hover {
+    transform: scale(1.05);
+}
+
+/* Anchor Tag for Blog Links */
+#savedBlogsList a {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+    color: #ff6f61;
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
+    display: inline-block;
+    position: relative;
+}
+
+#savedBlogsList a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(135deg, #ff9a8b, #ff6f61);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease-in-out;
+}
+
+#savedBlogsList a:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+#savedBlogsList a:hover {
+    color: #ff3b30;
+    text-shadow: 1px 1px 5px rgba(255, 111, 97, 0.5);
+}
+
+/* Dark Mode Anchor */
+.dark-mode #savedBlogsList a {
+    color: #ff9a8b;
+}
+
+.dark-mode #savedBlogsList a:hover {
+    color: #ff6f61;
+    text-shadow: 1px 1px 8px rgba(255, 154, 139, 0.7);
+}
+
+/* Anchor Tag for Blog Links */
+#savedBlogsList a {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+    color: #ff6f61;
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
+    display: inline-block;
+    position: relative;
+}
+
+#savedBlogsList a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(135deg, #ff9a8b, #ff6f61);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease-in-out;
+}
+
+#savedBlogsList a:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+#savedBlogsList a:hover {
+    color: #ff3b30;
+    text-shadow: 1px 1px 5px rgba(255, 111, 97, 0.5);
+}
+
+/* Dark Mode Anchor */
+.dark-mode #savedBlogsList a {
+    color: #ff9a8b;
+}
+
+.dark-mode #savedBlogsList a:hover {
+    color: #ff6f61;
+    text-shadow: 1px 1px 8px rgba(255, 154, 139, 0.7);
+}
+
+
+</style>
+<body>
+
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+            <div class="container d-flex justify-content-between align-items-center">
+                <!-- Logo & Title -->
+                <a class="navbar-brand d-flex align-items-center" href="#">
+                    <img src="assets/logoo.png" width="120" alt="Logo" class="me-2 img-fluid">
+                    <h1 class="blog-titlee m-0 fs-4 d-none d-md-block">The Thought Journal 💌</h1>
+                    <h1 class="blog-titlee m-0 fs-6 d-block d-md-none">The Thought Journal 💌</h1>
+                </a>
+        
+                <!-- Navbar Toggler for Mobile -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+        
+                <!-- Navbar Items -->
+                <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                    <ul class="navbar-nav align-items-center">
+                        <li class="nav-item"><a href="homepage.html" class="nav-link me-3">Home</a></li>
+                        <li class="nav-item"><a href="explore.html" class="nav-link me-3">Explore</a></li>
+                        <li class="nav-item"><a href="addblog.html" class="nav-link me-3">Add Blog</a></li>
+                        <li class="nav-item"><a href="#" id="logout" class="nav-link me-3">Logout</a></li>
+        
+                        <!-- Bookmark Button (with Count) -->
+                        <li class="nav-item d-flex align-items-center">
+                            <button id="savedBlogsBtn" class="nav-link d-flex align-items-center">
+                                <i class="fas fa-bookmark"></i>
+                                <span id="savedCount" class="ms-2"></span> 
+                            </button>
+                        </li>
+        
+                        <!-- Theme Toggle Button -->
+                        <li class="nav-item">
+                            <button id="theme-toggle" class="btn btn-light d-flex align-items-center p-2">
+                                <i class="fas fa-moon"></i>
+                            </button>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    <!-- Blog Details -->
+<!-- Blog Details -->
+<div class="container my-5">
+    <div class="row">
+        <!-- Left: Main Blog Content -->
+        <div class="col-lg-8">
+            <div id="blogContainer" class="text-center p-4 rounded-lg shadow-lg bg-light blog-box">
+                <!-- Blog Title -->
+                <h1 id="blogTitle" class="font-weight-bold mb-3 text-gradient"></h1>
+
+                <!-- Blog Image -->
+                <div class="blog-image-container">
+                    <img id="blogImage" class="img-fluid shadow-lg">
+                </div>
+
+                <!-- Author & Date -->
+                <div class="mb-3">
+                    <p class="text-muted">
+                        <strong class="text-secondary">By: </strong>
+                        <span id="blogAuthor" class="font-italic text-dark"></span> |
+                        <small id="blogDate" class="text-muted"></small>
+                    </p>
+                </div>
+
+                <!-- Blog Category & Read Time -->
+                <div class="d-flex justify-content-center mb-3">
+                    <span id="blogCategory" class="badge bg-primary px-3 py-2 shadow-sm"></span>
+                    <span id="blogReadTime" class="badge bg-success px-3 py-2 shadow-sm"></span>
+                </div>
+
+                <!-- Blog Content -->
+                <div class="text-left px-4">
+                    <h4 class="section-title">
+                        <i class="fas fa-book-open mr-2"></i> Blog Content
+                    </h4>
+                    <p id="blogContent" class="lead blog-text"></p>
+                </div>
+
+                <!-- Blog Tags -->
+                <div class="mb-4">
+                    <h5 class="text-warning">Tags:</h5>
+                    <p id="blogTags"></p>
+                </div>
+
+                <!-- Buttons -->
+                <div class="mt-4 d-flex justify-content-center">
+                    <button id="addToFavorites" class="btn btn-lg mx-2 shadow-sm save-blog-btn">
+                        <i class="fas fa-bookmark fa-lg"></i> Save
+                    </button>
+
+                    <button id="deleteBlog" class="btn btn-danger btn-lg mx-2 shadow-sm d-none">
+                        <i class="fas fa-trash mr-2"></i> Delete
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right: Suggested Blogs -->
+        <div class="ss col-lg-4">
+            <h4 class="fw-bold mb-3 text-dark">Suggested Blogs</h4>
+            <div id="suggestedBlogs"></div>
+            <div id="suggestedBlogsContainer" class="mt-4"></div>
+
+        </div>
+    </div>
+</div>
+
+
+<!-- Saved Blogs Modal -->
+<div class="modal fade" id="savedBlogsModal" tabindex="-1" aria-labelledby="savedBlogsModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="savedBlogsModalLabel">Saved Blogs</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <ul id="savedBlogsList" class="list-group"></ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Comments Section -->
+<div class="container mt-5">
+    <h3>Comments</h3>
+
+    <!-- Comment Input -->
+    <div class="mb-3">
+        <textarea id="commentInput" class="form-control" rows="3" placeholder="Write a comment..."></textarea>
+        <button id="postComment" class="btn btn-primary mt-2">Post Comment</button>
+    </div>
+
+    <!-- Comments List -->
+    <div id="commentsList" class="mt-4">
+        <p>Loading comments...</p>
+    </div>
+</div>
+
+
+
+  
+    <!-- Footer  -->
+    <footer class="bg-light py-4 mt-5">
+        <div class="container d-flex flex-wrap justify-content-between">
+            <div class="footer-about">
+                <h4 class="fw-bold"><img src="assets/logoo.png" width="150" alt="Logo"><span class="blog-titlee"> The Thought Journal 💌</span></h4>
+                <p>
+                    I'm Aisha Usman, a CS student and a foodie. I love sharing my passion for recipes, technology, and creativity. 
+                    Through this blog, I explore and share my experiences in food, coding, and lifestyle.
+                </p>
+                <div class="social-icons mt-2">
+                    <a href="https://www.linkedin.com/in/ayesha-usman-413879302/" class="me-2"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" class="me-2"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="me-2"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="footer-links">
+                <h5 class="fw-bold">Links</h5>
+                <ul class="list-unstyled">
+                    <li><a href="homepage.html">Homepage</a></li>
+                    <li><a href="explore.html">Blog</a></li>
+                    <li><a href="addblog.html">Add Blog</a></li>
+                    <li><a href="homepage.html">Search Blogs</a></li>
+                </ul>
+            </div>
+            <div class="footer-tags">
+                <h5 class="fw-bold">Tags</h5>
+                <ul class="list-unstyled">
+                    <li><a href="homepage.html">Food</a></li>
+                    <li><a href="homepage.html">Recipes</a></li>
+                    <li><a href="homepage.html">Coding</a></li>
+                    <li><a href="homepage.html">Technology</a></li>
+                </ul>
+            </div>
+            <div class="footer-social">
+                <h5 class="fw-bold">Social</h5>
+                <ul class="list-unstyled">
+                    <li><a href="https://www.linkedin.com/in/ayesha-usman-413879302/">LinkedIn</a></li>
+                    <li><a href="#">Instagram</a></li>
+                    <li><a href="#">Facebook</a></li>
+                    <li><a href="#">YouTube</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById("theme-toggle").addEventListener("click", function() {
+            document.body.classList.toggle("dark-mode");
+            localStorage.setItem("theme", document.body.classList.contains("dark-mode") ? "dark" : "light");
+        });
+        
+        // Load theme from local storage
+        window.onload = function() {
+            if (localStorage.getItem("theme") === "dark") {
+                document.body.classList.add("dark-mode");
+            }
+        };
+        </script>
+
+        <script>
+            const suggestedBlogs = [
+    {
+        title: "5 Secret Spices for Delicious Cooking",
+        author: "John Doe",
+        profilePic: "https://randomuser.me/api/portraits/men/10.jpg",
+        link: "https://www.spicekitchenuk.com/blogs/news/the-5-secrets-to-cooking-with-spices?srsltid=AfmBOoplPaqcKOAcQfaJAYYRdBesC6bEmuk5mrp9PftWTsNqxn4SSRJG"
+    },
+    {
+        title: "How to Travel on a Budget",
+        author: "Jane Smith",
+        profilePic: "https://randomuser.me/api/portraits/women/12.jpg",
+        link: "https://www.investopedia.com/how-to-travel-on-a-budget-8655623"
+    },
+    {
+        title: "Top 10 Web Development Trends",
+        author: "Michael Lee",
+        profilePic: "https://randomuser.me/api/portraits/men/20.jpg",
+        link: "https://www.geeksforgeeks.org/top-web-development-trends/"
+    },
+    {
+        title: "The Ultimate Guide to Healthy Eating",
+        author: "Sarah Brown",
+        profilePic: "https://randomuser.me/api/portraits/women/30.jpg",
+        link: "https://www.healthline.com/nutrition/how-to-eat-healthy-guide"
+    }, {
+        title: "Photography Tips for Beginners",
+        author: "David White",
+        profilePic: "https://randomuser.me/api/portraits/men/40.jpg",
+        link: "https://photographylife.com/photography-tips-for-beginners"
+    },
+    {
+        title: "Mastering the Art of Baking",
+        author: "Emily Green",
+        profilePic: "https://randomuser.me/api/portraits/women/50.jpg",
+        link: "https://www.amazon.com/Mastering-Art-Baking-Anneka-Manning/dp/1742663877"
+    },
+    {
+        title: "Fitness Routines to Stay in Shape",
+        author: "Chris Black",
+        profilePic: "https://randomuser.me/api/portraits/men/60.jpg",
+        link: "https://www.healthline.com/health/fitness-exercise/at-home-workouts"
+    }
+   
+];
+
+// **Function to Display Suggested Blogs**
+function displaySuggestedBlogs() {
+    const container = document.getElementById("suggestedBlogsContainer");
+    container.innerHTML = ""; // Clear previous content
+
+    suggestedBlogs.forEach(blog => {
+        const blogCard = `
+            <a href="${blog.link}" class="text-decoration-none">
+                <div class="card mb-3 shadow-sm suggested-blog" style="border-radius: 10px;">
+                    <div class="d-flex align-items-center p-3">
+                        <img src="${blog.profilePic}" class="rounded-circle me-3" width="50" height="50" alt="Author">
+                        <div>
+                            <h5 class="mb-1 text-dark">${blog.title}</h5>
+                            <p class="text-muted small mb-0">By ${blog.author}</p>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        `;
+        container.innerHTML += blogCard;
+    });
+}
+
+// Call function to populate blogs on page load
+displaySuggestedBlogs();
+
+
+
+        </script>
+
+
+<script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.3.1/firebase-app.js";
+import { getFirestore, collection, doc, setDoc, getDoc } from "https://www.gstatic.com/firebasejs/11.3.1/firebase-firestore.js";
+import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.3.1/firebase-auth.js";
+
+// Firebase configuration
+const firebaseConfig = {
+apiKey: "AIzaSyAbk_u3KmsTa_et45ZhPhOZgqlqrzYE0y4",
+authDomain: "blogsweb-ec131.firebaseapp.com",
+projectId: "blogsweb-ec131",
+storageBucket: "blogsweb-ec131.appspot.com",
+messagingSenderId: "370936332298",
+appId: "1:370936332298:web:8ca8aa499bb34afbc59ff3"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const db = getFirestore(app);
+
+let savedBlogsCount = 0;
+
+// Ensure Firebase Auth is initialized before using
+onAuthStateChanged(auth, async (user) => {
+if (user) {
+    await displaySavedBlogs();
+}
+});
+
+// Function to save a blog
+async function saveBlog(blog) {
+const user = auth.currentUser;
+if (!user) {
+    alert("You need to log in to save blogs.");
+    return;
+}
+
+const userRef = doc(db, "users", user.uid);
+const userSnap = await getDoc(userRef);
+let savedBlogs = userSnap.exists() ? userSnap.data().savedBlogs || [] : [];
+const saveBtn = document.getElementById("addToFavorites");
+
+if (savedBlogs.some(b => b.title === blog.title)) {
+
+    saveBtn.innerHTML = '<i class="fas fa-check"></i> Saved';
+    saveBtn.disabled = true;
+
+    alert("This blog is already saved!");
+    return;
+}
+
+savedBlogs.push(blog);
+
+try {
+    await setDoc(userRef, { savedBlogs }, { merge: true });
+
+    alert("Blog added to favorites!");
+    updateNavbarCount(savedBlogs.length); // ✅ Update navbar count
+    toggleSaveButton(true); // ✅ Change button to "Saved"
+
+    displaySavedBlogs(); // Refresh the saved list
+} catch (error) {
+    console.error("Error saving blog:", error);
+    alert("Failed to save blog. Try again!");
+}
+}
+
+// Function to display saved blogs in modal
+async function displaySavedBlogs() {
+const user = auth.currentUser;
+if (!user) return;
+
+const userRef = doc(db, "users", user.uid);
+const userSnap = await getDoc(userRef);
+let savedBlogs = userSnap.exists() ? userSnap.data().savedBlogs || [] : [];
+const savedBlogsList = document.getElementById("savedBlogsList");
+
+savedBlogsList.innerHTML = savedBlogs.length ? "" : "<p class='text-center'>No saved blogs.</p>";
+
+savedBlogs.forEach(blog => {
+    let li = document.createElement("li");
+    li.className = "list-group-item d-flex justify-content-between align-items-center";
+    li.innerHTML = `
+        <a href="${blog.url}" target="_blank">${blog.title}</a>
+        <button class="btn btn-danger btn-sm remove-btn" data-title="${blog.title}">Remove</button>
+    `;
+    savedBlogsList.appendChild(li);
+});
+
+updateNavbarCount(savedBlogs.length); // ✅ Update navbar count
+
+document.querySelectorAll(".remove-btn").forEach(button => {
+    button.addEventListener("click", async function () {
+        const blogTitle = this.getAttribute("data-title");
+        await removeSavedBlog(blogTitle);
+    });
+});
+}
+
+// Function to remove a saved blog
+async function removeSavedBlog(blogTitle) {
+const user = auth.currentUser;
+if (!user) return;
+
+const userRef = doc(db, "users", user.uid);
+const userSnap = await getDoc(userRef);
+
+let savedBlogs = userSnap.exists() ? userSnap.data().savedBlogs || [] : [];
+savedBlogs = savedBlogs.filter(blog => blog.title !== blogTitle);
+
+await setDoc(userRef, { savedBlogs }, { merge: true });
+
+displaySavedBlogs(); // Refresh list
+alert("Blog removed from favorites!");
+
+// ✅ Reset the save button if the removed blog is the current blog
+const currentBlogTitle = document.getElementById("blogTitle").textContent.trim();
+if (currentBlogTitle === blogTitle) {
+    toggleSaveButton(false);
+}
+}
+
+// Function to update the saved blog count in navbar
+function updateNavbarCount(count) {
+savedBlogsCount = count;
+const savedBlogsBtn = document.getElementById("savedBlogsBtn");
+savedBlogsBtn.innerHTML = `<i class="fas fa-bookmark"></i> ${savedBlogsCount}`;
+}
+
+// Function to toggle save button UI
+function toggleSaveButton(isSaved) {
+const saveBtn = document.getElementById("addToFavorites");
+if (isSaved) {
+    saveBtn.innerHTML = '<i class="fas fa-check"></i> Saved';
+    saveBtn.disabled = true;
+} else {
+    saveBtn.innerHTML = '<i class="fas fa-bookmark"></i> Save';
+    saveBtn.disabled = false;
+}
+}
+
+// Event listener for saving blogs
+document.getElementById("addToFavorites").addEventListener("click", function () {
+const blogTitle = document.getElementById("blogTitle").textContent.trim();
+const blogUrl = window.location.href;
+saveBlog({ title: blogTitle, url: blogUrl });
+});
+
+// Event listener for opening the saved blogs modal
+document.getElementById("savedBlogsBtn").addEventListener("click", function () {
+displaySavedBlogs(); // Refresh saved blogs list
+var modal = new bootstrap.Modal(document.getElementById("savedBlogsModal"));
+modal.show();
+});
+
+</script>
+
+
+
+
+ 
+   <script type="module" src="blog-details.js"></script>
+</body>
+</html>
